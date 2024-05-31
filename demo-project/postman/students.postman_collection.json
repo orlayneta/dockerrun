@@ -1,0 +1,235 @@
+{
+	"info": {
+		"_postman_id": "0b05dc8b-0429-4a31-85ca-9841944b643f",
+		"name": "students",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "post Students",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e4d82a82-2147-4f16-82ab-852742f1e1e5",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    ",
+							"});",
+							"",
+							"pm.test(\"have the student id value\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.environment.set(\"student_id\", jsonData.id);",
+							"});    ",
+							"console.log(\"student_id:\",pm.environment.get(\"student_id\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"patri\"\n}"
+				},
+				"url": {
+					"raw": "{{url_base}}/student",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"student"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put Students",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "03eb5680-4167-42eb-89da-d8a4c09a6980",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\n\t\"id\": \"{{student_id}}\",\n\t\"name\":\"volmar updated\",\n\t\"registration\": \"20\"\n}"
+				},
+				"url": {
+					"raw": "{{url_base}}/student",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"student"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Student",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "33cf5300-f825-4fa5-b7cc-6488bb77b811",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url_base}}/student/{{student_id}}",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"student",
+						"{{student_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all Students",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9a83e70d-360e-4424-890d-5fae7f63afe0",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url_base}}/student",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"student"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete Student",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dcfca0c6-873b-447c-b6bf-00444017f0be",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url_base}}/student/{{student_id}}",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"student",
+						"{{student_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
